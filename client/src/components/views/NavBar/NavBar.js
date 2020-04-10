@@ -19,7 +19,7 @@ function NavBar () {
   return (
     <nav className="menu" style={{ position: 'fixed', zIndex: 5, width: '100%', margin:'0 auto' }}>
       <div className="menu__logo">
-        <a href="/">Travel</a>
+        <a href="/">Traveler</a>
       </div>
       <div className="menu__container">
         {/*<div className="menu_left">*/}
