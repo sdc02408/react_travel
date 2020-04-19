@@ -26,8 +26,8 @@ function RightMenu(props) {
         <Menu.Item key="mail">
           <a href="/">홈</a>
         </Menu.Item>
-        <Menu.Item key="favorite">
-          <a href="/favorite">게시판</a>
+        <Menu.Item key="listpage">
+          <a href="/listpage">게시판</a>
         </Menu.Item>
         <Menu.Item key="signin">
           <a href="/login">로그인</a>
@@ -44,7 +44,7 @@ function RightMenu(props) {
           <a href="/">홈</a>
         </Menu.Item>
         <Menu.Item key="favorite">
-          <a href="/favorite">게시판</a>
+          <a href="/listpage">게시판</a>
         </Menu.Item>
         <Menu.Item key="logout">
           <a onClick={logoutHandler}>로그아웃</a>

@@ -12,7 +12,7 @@ import LoginPage from './views/LoginPage/LoginPage'
 import RegisterPage from './views/RegisterPage/RegisterPage'
 import Auth from '../hoc/auth'
 import NavBar from './views/NavBar/NavBar'
-
+import ListPage from './views/ListPage/ListPage'
 function App() {
   return (
     <Router>
@@ -30,6 +30,7 @@ function App() {
           <Route exact path="/" component={Auth(LandingPage, null,true )} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/listpage" component={Auth(ListPage, false)} />
         </Switch>
       </div>
     </Router>
