@@ -29,7 +29,7 @@ function list (props) {
 
 
       <Card title="card title" style={{ width: '60%',justifyContent:'flex-end' }}>
-        <p style={{color:'red'}}>nm,nm,</p>
+        <p style={{color:'red'}}>{props.text}</p>
         <p>{props.text}</p>
         <p>{props.date}</p>
       </Card>

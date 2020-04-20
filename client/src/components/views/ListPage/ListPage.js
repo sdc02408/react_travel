@@ -5,39 +5,58 @@ import { Row, Col, Card, Input, DatePicker, Button, Typography } from 'antd'
 import List from './Sections/list'
 import MapPage from './Sections/mapPage'
 
-
 function ListPage () {
 
-  const [hi,setHi] =useState({
-    id:1,
-    text:'hello',
-    date:'1/2'
-  }
-  )
+  const Location = [{
+      id: 1,
+      text: '강남역',
+      date: '37.4425768,126.979916',
+      a:'37.4425768',
+      b:'126.979916'
+    },
+    { id: 2,
+      text: '삼성역',
+      date: '37.508861,127.0609603',
+      a:'37.508861',
+      b:'127.0609603'
+
+    }
+  ]
+
+
 
 
   return (
 
-    <div style={{width:'100%',display:'flex'}}>
+    <Col lg={24}>
+    <div style={{ display: 'flex',height:'100vh' }}>
 
 
+      <Col lg={12}>
+        {Location && Location.map((location,index) => (
+          <React.Fragment key={index}>
+            <List
 
-    <div style={{width:'60%'}}>
-     <List
-      text={hi.text}
-      date={hi.date}
+              text={location.text}
+              date={location.date}
+            />
+          </React.Fragment>
+          ))}
+      </Col>
 
-     />
+
+      <Col lg={12}>
+
+          <MapPage
+
+          style={{height:'100vh'}}
+          />
+
+
+      </Col>
+
     </div>
-
-
-
-      <div style={{width:'40%',background:'green'}}>
-       <MapPage/>
-      </div>
-
-
-    </div>
+    </Col>
   )
 }
 
