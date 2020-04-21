@@ -3,41 +3,110 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { Row, Col, Card, Input, DatePicker, Button, Typography } from 'antd'
 import List from './Sections/list'
-
+import MapPage from './Sections/mapPage'
+import {ServiceKey} from '../../Config'
 
 function ListPage () {
+
+  // const Location = [{
+  //     id: 1,
+  //     text: '강남역',
+  //     date: '37.4425768,126.979916',
+  //     a:'37.4425768',
+  //     b:'126.979916'
+  //   },
+  //   { id: 2,
+  //     text: '삼성역',
+  //     date: '37.508861,127.0609603',
+  //     a:'37.508861',
+  //     b:'127.0609603'
+  //
+  //   }
+  // ]
   
-  const [hi,setHi] =useState({
-    id:1,
-    text:'hello',
-    date:'1/2'
+  const [Info,setInfo] = useState([])
+  // const [Location,setLocation] = useState([])
+  
+  // ${ServiceKey}
+  useEffect(() => {
+   const first = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=${ServiceKey}&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json`
+    fetchInfo(first)
+   //
+   // const second = ` http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=${ServiceKey}&mapX=126.981611&mapY=37.568477&radius=1000&pageNo=1&numOfRows=10&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTesting&_type=json`
+   //  fetchLocation(second)
+
+  },[])
+  
+  const fetchInfo = (first) => {
+    fetch(first)
+    .then(response => response.json())
+    .then(response => {
+      console.log("fff",response.response.body.items.item)
+      setInfo([...Info,...response.response.body.items.item])
+    })
   }
-  )
+  
+  // const fetchLocation = (second) => {
+  //   fetch(second)
+  //   .then(response => response.json())
+  //   .then(response => {
+  //     console.log("hhh",response.response.body.items.item)
+  //     setLocation([...Location,...response.response.body.items.item])
+  //   })
+  // }
+  
+  
   
   
   return (
- 
-    <div style={{width:'100%',display:'flex'}}>
-    
-    <div style={{width:'50%'}}>
-     <List
-      text={hi.text}
-      date={hi.date}
+
+    <Col lg={24}>
+    <div style={{ display: 'flex',height:'100vh' }}>
+
       
-     />
-    </div>
-  
-      <div style={{width:'50%',background:'red'}}>
-        dfdf
-      </div>
+      {/*<Col lg={12}>*/}
+      {/*  {Location && Location.map((location,index) => (*/}
+      {/*    <React.Fragment key={index}>*/}
+      {/*      <List*/}
       
-    
+      {/*        text={location.text}*/}
+      {/*        date={location.date}*/}
+      {/*      />*/}
+      {/*    </React.Fragment>*/}
+      {/*    ))}*/}
+      {/*</Col>*/}
+  
+  
+      <Col lg={12}>
+        {Info && Info.map((info,index) => (
+          <React.Fragment key={index}>
+            <List
+              image={info.firstimage}
+              title={info.title}
+              text={info.addr1}
+              date={info.tel}
+            />
+          </React.Fragment>
+          ))}
+      </Col>
+  
+  
+  
+      <Col lg={12}>
+        {Info && Info.map((info,index) => (
+          <React.Fragment key={index}>
+            <MapPage
+              style={{height:'100vh'}}
+             lat={info.mapy}
+              lng={info.mapx}
+            />
+          </React.Fragment>
+        ))}
+      </Col>
+
     </div>
-    
-  
-  
+    </Col>
   )
-  
 }
 
 export default withRouter(ListPage)
