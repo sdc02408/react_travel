@@ -3,7 +3,7 @@ import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { Row, Col, Card, Input, DatePicker, Button, Typography } from 'antd'
 import List from './Sections/list'
-import MapPage from './Sections/mapPage'
+import MapPage from './Sections/MapPage'
 import {ServiceKey} from '../../Config'
 
 function ListPage () {
@@ -63,12 +63,12 @@ function ListPage () {
       </Col>
 
       <Col lg={12}>
-
+       
             <MapPage
               style={{height:'100vh'}}
-
+           
             />
-
+    
       </Col>
 
     </div>
