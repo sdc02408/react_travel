@@ -63,12 +63,15 @@ function ListPage () {
       </Col>
 
       <Col lg={12}>
-       
+        {Info && Info.map((info,index) => (
+          <React.Fragment key={index}>
             <MapPage
               style={{height:'100vh'}}
-           
+              mapy={info.mapy}
+              mapx={info.mapx}
             />
-    
+          </React.Fragment>
+        ))}
       </Col>
 
     </div>

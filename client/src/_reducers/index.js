@@ -5,9 +5,6 @@ import user from './user_reducer';
 
 const rootReducer = combineReducers({
   user,
-  setStoreList,
-  setMap,
-  addMarker,
   //comment
 })
 

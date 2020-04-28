@@ -22,7 +22,7 @@ function App() {
   return (
  
     <Router>
-      <Provider store={store}>
+      {/*<Provider store={store}>*/}
       {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -41,7 +41,7 @@ function App() {
           <Route exact path="/listpage" component={Auth(ListPage, false)} />
         </Switch>
       </div>
-      </Provider>
+      {/*</Provider>*/}
     </Router>
 
   );
