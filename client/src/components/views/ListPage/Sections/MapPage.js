@@ -4,22 +4,16 @@ import { withRouter } from 'react-router-dom'
 import { Row, Col, Card, Input, DatePicker, Button, Typography,Carousel } from 'antd'
 import Carimage from '../../LandingPage/Sections/friends.jpg'
 import './list.css'
-import {ServiceKey} from '../../../Config'
 
 
 const { kakao } = window;
 
 function MapPage (props) {
   
-  const [Location,setLocation] = useState([])
-  
-  
+
   
   useEffect(() => {
-    const second = ` http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=${ServiceKey}&mapX=126.981611&mapY=37.568477&radius=1000&pageNo=1&numOfRows=10&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTesting&_type=json`
-     fetchLocation(second)
-    
-    
+
     
     const container = document.getElementById('mask-map');
     const options = {
@@ -84,15 +78,7 @@ function MapPage (props) {
     
   }, [])
   
-  const fetchLocation = (second) => {
-    fetch(second)
-    .then(response => response.json())
-    .then(response => {
-      console.log("hhh",response.response.body.items.item)
-      setLocation([...Location,...response.response.body.items.item])
-    })
-  }
-
+  
   
   
   return (
