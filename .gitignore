@@ -2,7 +2,7 @@ node_modules
 dev.js
 .idea
 <<<<<<< HEAD
-./client/src/components/Config.js
 
+.env
 =======
 >>>>>>> 2edda43947017997226f3c8c10615129971c5fa6
