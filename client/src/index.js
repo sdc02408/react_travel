@@ -7,25 +7,22 @@ import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
 
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware} from 'redux';
+import { createStore, applyMiddleware,compose} from 'redux';
 import promiseMiddleware from 'redux-promise';
-import ReduxThunk from 'redux-thunk';
+import thunk from 'redux-thunk';
+
 import Reducer from './_reducers';
 
-const createStoreWithMiddleware = applyMiddleware(promiseMiddleware, ReduxThunk)(createStore)
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+const store = createStore(Reducer, composeEnhancer(applyMiddleware(thunk)));
 
 ReactDOM.render(//리덕스 연결
-  <Provider
-    store={createStoreWithMiddleware(Reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-                  window.__REDUX_DEVTOOLS_EXTENSION__()
-      
-      )}
-  >
+  <Provider store={store}>
   <App />
-  </Provider>
-,
+  </Provider>,
   document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

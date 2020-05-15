@@ -13,9 +13,8 @@ import RegisterPage from './views/RegisterPage/RegisterPage'
 import Auth from '../hoc/auth'
 import NavBar from './views/NavBar/NavBar'
 import ListPage from './views/ListPage/ListPage'
+import ex from './views/ex/ex'
 import {Provider} from 'react-redux'
-import store from '../store/store'
-
 
 
 function App() {
@@ -39,6 +38,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/listpage" component={ListPage} />
+          <Route exact path="/ex" component={ex} />
         </Switch>
       </div>
       {/*</Provider>*/}
