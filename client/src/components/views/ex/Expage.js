@@ -9,16 +9,15 @@ import List from './Sections/List'
 function Expage (props) {
   
   return (
-    <div>
+    <>
       
       <h2>here is the large</h2>
       
       <List/>
-      
+    <Netflix/>
       <Maps/>
-      <h2>{props.props.title}</h2>
-    
-    </div>
+
+</>
   )
   
 }

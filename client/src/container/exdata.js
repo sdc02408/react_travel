@@ -25,7 +25,7 @@ const Netflix = () => {
         {netflixData &&
         netflixData.map((movie,index) => (
         <React.Fragment key={index}>
-          <Expage
+          <List
             title={movie.title}
             key={movie.id}/>
             

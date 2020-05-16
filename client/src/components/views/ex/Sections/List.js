@@ -13,14 +13,12 @@ function List(props) {
   return (
     <div>
       
-      <h2>here is the page</h2>
-
+  
 
     
-    {/*<Card>*/}
-    {/*  <p>{props.title}</p>*/}
-    {/*  <p>{props.tel}</p>*/}
-    {/*</Card>*/}
+
+      <h4>{props.title}</h4>
+    
     
 
     </div>
