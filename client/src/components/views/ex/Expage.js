@@ -2,21 +2,26 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import { Row, Col, Card, Input, DatePicker, Button, Typography, Carousel } from 'antd'
-import Listzz from './listzz'
+import Maps from './Sections/Maps'
 import Netflix from '../../../container/exdata'
-import Mapss from '../ex/mapss'
+import List from './Sections/List'
 
-function ex (props) {
+function Expage (props) {
+  
   return (
     <div>
       
-      <Netflix/>
-  
-     <Mapss/>
-     
+      <h2>here is the large</h2>
+      
+      <List/>
+      
+      <Maps/>
+      <h2>{props.props.title}</h2>
+    
     </div>
   )
   
 }
 
-export default withRouter(ex)
+export default withRouter(Expage)
+
