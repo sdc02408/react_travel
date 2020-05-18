@@ -8,22 +8,13 @@ import Netflix from '../../../../container/exdata'
 
 function List(props) {
   
-
-  
   return (
-    <div>
-      
-  
-
-    
+    <div style={{width:'100%'}}>
 
       <h4>{props.title}</h4>
-    
-    
-
+      
     </div>
   )
-  
 }
 
 export default List

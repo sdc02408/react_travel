@@ -5,6 +5,7 @@ import { Row, Col, Card, Input, DatePicker, Button, Typography } from "antd";
 import List from "./Sections/list";
 import MapPage from "./Sections/MapPage";
 import { ServiceKey } from "../../Config";
+import Netflix from '../../../container/exdata'
 
 function ListPage() {
   const [Info, setInfo] = useState([]);
@@ -39,6 +40,7 @@ function ListPage() {
 
   return (
     <Col lg={24}>
+
       <div style={{ display: "flex", height: "100vh" }}>
         <Col lg={12}>
           {Info &&
@@ -55,17 +57,7 @@ function ListPage() {
             ))}
         </Col>
         <Col lg={12}>
-          {Info &&
-            Info.map((info, index) => (
-              <React.Fragment key={index}>
-                <MapPage
-                  title={info.title}
-                  mapy={info.mapy}
-                  mapx={info.mapx}
-                  id={index}
-                />
-              </React.Fragment>
-            ))}
+          <Netflix />
         </Col>
       </div>
     </Col>

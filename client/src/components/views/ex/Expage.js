@@ -9,18 +9,16 @@ import List from './Sections/List'
 function Expage (props) {
   
   return (
-    <>
+    <div style={{ width: '100%'}}>
       
       <h2>here is the large</h2>
-      
-      <List/>
-    <Netflix/>
-      <Maps/>
-
-</>
-  )
   
-}
-
-export default withRouter(Expage)
+      <Netflix />
+      <Maps style={{overFlow:'visible'}}/>
+      </div>
+      )
+      
+      }
+      
+      export default withRouter(Expage)
 

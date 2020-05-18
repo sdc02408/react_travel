@@ -79,8 +79,7 @@ function MapPage(props) {
 
     }
 
-
-
+    
 
 
   }, []);
@@ -88,12 +87,10 @@ function MapPage(props) {
 
 
   return (
-
       <div
         id={`map`}
         style={{ width: "100%", height: "100vh"}}
       ></div>
-
   );
 }
 

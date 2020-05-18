@@ -3,7 +3,8 @@ import { fetchexlocData } from '../_actions/user_action'
 import { useDispatch, useSelector } from 'react-redux'
 import List from "../components/views/ex/Sections/List"
 import Expage from '../components/views/ex/Expage'
-
+import Maps from '../components/views/ex/Sections/Maps'
+import MapPage from '../components/views/ListPage/Sections/MapPage'
 
 const Netflix = () => {
   
@@ -19,9 +20,9 @@ const Netflix = () => {
   console.log("이거 맞나", netflixData)
   
   return (
-    <div>
+    <div style={{ width: '100%', display:'flex'}}>
       
-        <div>
+        <div style={{width:'50%', margin : 0}}>
         {netflixData &&
         netflixData.map((movie,index) => (
         <React.Fragment key={index}>
@@ -29,11 +30,26 @@ const Netflix = () => {
             title={movie.title}
             key={movie.id}/>
             
-          {/*  <h2>{movie.title}</h2>*/}
-          {/*<h2>{movie.tel}</h2>*/}
           </React.Fragment>
         ))}
         </div>
+  
+      <div style={{width:'100%', margin : 0}}>
+        {netflixData &&
+        netflixData.map((map,index) => (
+          <React.Fragment key={index}>
+            <MapPage
+              mapx={map.mapx}
+              mapy={map.mapy}
+            />
+      
+          </React.Fragment>
+        ))}
+      </div>
+      
+      
+      
+    
 
     </div>
   )
