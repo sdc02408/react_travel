@@ -5,8 +5,8 @@ const SearchPage = (props) => {
   
   console.log(props.location.state,"받은값")
   
-  const numbers = props.location.state;
-  
+  // const numbers = props.location.state;
+
   return (
     
     <div >
@@ -15,9 +15,9 @@ const SearchPage = (props) => {
   
       
       <ul>
-        {numbers.map(number => (
-          <li key={number.id}>{number.title}</li>
-        ))}
+        {/*{numbers.map(number => (*/}
+        {/*  <li key={number.id}>{number.title}</li>*/}
+        {/*))}*/}
       </ul>
       
       

@@ -4,6 +4,7 @@ import {
   REGISTER_USER,
   AUTH_USER,
   EX_LOC,
+  API_LOCATION
  
 } from './types';
 import { ServiceKey } from "../components/Config";
@@ -65,6 +66,28 @@ export const fetchexlocData = () => {
   }
 
 }
+
+export const locationData = (data) => {
+  return {
+    type:API_LOCATION,
+    data,
+  }
+}
+
+export const fetchlocationData = () => {
+  return (dispatch) => {
+    return axios.get(`http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&MobileOS=ETC&MobileApp=AppTesting&keyword=%EC%84%9C%EC%9A%B8&_type=json`)
+    .then(response => {
+      // console.log("받기는 하냐", response.data.response.body.items.item);
+      dispatch(locationData(response.data.response.body.items.item))
+    })
+    .catch(error => {
+      throw(error);
+    })
+  }
+}
+
+
 
 
 // const setMap = (map) => {

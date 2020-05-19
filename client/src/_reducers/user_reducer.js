@@ -1,4 +1,4 @@
-import { LOGIN_USER, REGISTER_USER,AUTH_USER,EX_LOC,  } from '../_actions/types'
+import { LOGIN_USER, REGISTER_USER,AUTH_USER,EX_LOC,API_LOCATION  } from '../_actions/types'
 import { createStore } from "redux";
 // SET_MAP,  SET_STORE_LIST,  ADD_MARKER
 export default function(state={}, action) {
@@ -15,6 +15,8 @@ export default function(state={}, action) {
     case EX_LOC:
       return {...state, movies : action.data }
       break;
+    case API_LOCATION:
+      return {...state, location: action.data}
     default:
       return state;
   }

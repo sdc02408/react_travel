@@ -4,63 +4,74 @@ import { withRouter,useHistory } from 'react-router-dom'
 import { Row, Col, Card, Input, DatePicker, Button, Typography } from 'antd'
 import {Redirect} from 'react-router-dom'
 import queryString from 'query-string'
-import { ServiceKey} from "../../Config";
+import { ServiceKey,Seoul} from "../../Config";
 import mainImage from './Sections/friends.jpg'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchlocationData } from '../../../_actions/user_action'
 const { Title } = Typography
 
-function LandingPage () {
+function LandingPage ({location}) {
   let history = useHistory();
   
-
+  // const dispatch = useDispatch()
+  
   const [search,setSearch] = useState("")
-  const [tour,setTour] = useState([])
+  const [tour,setTour] = useState("")
+  //
   // const [sendurl, setSendurl] = useState("");
   //서울 %EC%84%9C%EC%9A%B8
   //강원 %EA%B0%95%EC%9B%90
-
+  
   useEffect(() => {
-    
-    const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&keyword=%EA%B0%95%EC%9B%90&MobileOS=ETC&MobileApp=AppTesting&_type=json`
-    
-    
-    fetchList(endpoint)
+  
+  
+  
+    // const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&MobileOS=ETC&MobileApp=AppTesting&keyword=${search}&_type=json`
+    // fetchList(endpoint)
+  
+    // dispatch(fetchlocationData())
   }, [])
+ 
   
-  const fetchList = (endpoint) => {
-    fetch(endpoint)
-    .then(response => response.json())
-    .then(response  => {
-      console.log("api데이터", response.response.body.items.item);
-      setTour([...tour, ...response.response.body.items.item]);
-    })
-  }
+  // const locationData = useSelector(state => state.locationdatas.location, []) || []
+  // console.log("오나요" , locationData)
   
+  // const fetchList = (endpoint) => {
+  //   fetch(endpoint)
+  //   .then(response => response.json())
+  //   .then(response  => {
+  //     console.log("api데이터", response.response.body.items.item);
+  //     setTour([...tour, ...response.response.body.items.item]);
+  //   })
+  // }
+  
+  
+  
+  
+
   const onChangeHandler = (e) => {
     setSearch(e.target.value);
   };
-  
-  
 
-  
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    var siba = search;
-    var b = encodeURI(siba);
-    console.log(b,"encodededed")
     
     
-    var willbe= tour;
-    console.log(siba,"입력값")
-    console.log(willbe,"will")
-    alert(siba)
-    console.log(siba,"문자형",tour)
-    
-    return history.push('/search',willbe)
+    var encodeing = encodeURI(search)
+    console.log(encodeing,"그냥 해도되니")
+  
+   
 
+    // var willbe= tour;
+    console.log(encodeing,"입력값")
+    // console.log(willbe,"will")
+    alert(encodeing)
+    console.log(encodeing,"문자형")
+    return history.push('/search',encodeing)
     // siba
   }
-
+  
   return (
     
     //background사진
