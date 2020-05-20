@@ -8,29 +8,27 @@ import { ServiceKey,Seoul} from "../../Config";
 import mainImage from './Sections/friends.jpg'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchlocationData } from '../../../_actions/user_action'
+
 const { Title } = Typography
 
 function LandingPage ({location}) {
   let history = useHistory();
   
-  // const dispatch = useDispatch()
+
   
+  // const dispatch = useDispatch()
+  const [query, setQuery] = useState('')
+  const [tour,setTour] = useState([])
   const [search,setSearch] = useState("")
-  const [tour,setTour] = useState("")
-  //
-  // const [sendurl, setSendurl] = useState("");
-  //서울 %EC%84%9C%EC%9A%B8
+
+   //서울 %EC%84%9C%EC%9A%B8
   //강원 %EA%B0%95%EC%9B%90
   
-  useEffect(() => {
-  
-  
-  
-    // const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&MobileOS=ETC&MobileApp=AppTesting&keyword=${search}&_type=json`
-    // fetchList(endpoint)
-  
-    // dispatch(fetchlocationData())
-  }, [])
+  // useEffect(() => {
+  //   const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&MobileOS=ETC&MobileApp=AppTesting&keyword=${sendurl}&_type=json`
+  //   fetchList(endpoint)
+  //   // dispatch(fetchlocationData())
+  // }, [])
  
   
   // const locationData = useSelector(state => state.locationdatas.location, []) || []
@@ -45,29 +43,29 @@ function LandingPage ({location}) {
   //   })
   // }
   
-  
-  
-  
 
   const onChangeHandler = (e) => {
     setSearch(e.target.value);
   };
 
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    
+  //
+  //      const hi = fetch(`http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&MobileOS=ETC&MobileApp=AppTesting&keyword=%EA%B0%95%EC%9B%90&_type=json`)
+  //      .then(response => response.json())
+  //      .then(response  => {
+  //       console.log("api데이터", response.response.body.items.item);
+  //       setTour([...tour, ...response.response.body.items.item]);
+  //     })
+  // console.log(hi,"hihihih")
     
     var encodeing = encodeURI(search)
     console.log(encodeing,"그냥 해도되니")
-  
-   
-
     // var willbe= tour;
     console.log(encodeing,"입력값")
     // console.log(willbe,"will")
     alert(encodeing)
-    console.log(encodeing,"문자형")
+    // console.log(encodeing,"문자형")
     return history.push('/search',encodeing)
     // siba
   }
