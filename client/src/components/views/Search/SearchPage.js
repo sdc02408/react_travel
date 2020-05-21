@@ -1,6 +1,10 @@
 import React, { useState,useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import { ServiceKey} from "../../Config";
+import ListPage from './Sections/ListPage'
+import Map from './Sections/Map'
+import { Row, Col, Card, Input, DatePicker, Button, Typography } from "antd";
+
 const SearchPage = (props) => {
   const [tour,setTour] = useState([])
   useEffect(() => {
@@ -8,7 +12,6 @@ const SearchPage = (props) => {
     fetchList(endpoint)
     // dispatch(fetchlocationData())
   }, [])
-  
   
   const fetchList = (endpoint) => {
     fetch(endpoint)
@@ -19,33 +22,55 @@ const SearchPage = (props) => {
     })
   }
   
-  
-  
   console.log(props.location.state,"받은값")
   
-  const numbers = props.location.state;
-
   return (
+    <Col lg={24}>
     
-    <div >
-      <h2 style={{color:'red'}}>fdsfsdf</h2>
-      {/*<h2 style={{color:'red'}}>{props.location.state}</h2>*/}
+      <div style={{ display: "flex", height: "100vh" }}>
+        <Col lg={12}>
+        
+      {tour &&
+        tour.map((tourInfo,index) => (
+          <React.Fragment key={index}>
+            <ListPage
+              id={index}
+              image={tourInfo.firstimage}
+              title={tourInfo.title}
+              text={tourInfo.addr1}
+              date={tourInfo.tel}
+            />
+          </React.Fragment>
+        ))}
+        </Col>
+      </div>
+  
+      <Col lg={12}>
+  
+        {tour &&
+        tour.map((tourInfo,index) => (
+          <React.Fragment key={index}>
+            <Map
+              id={index}
+              mapx={tourInfo.mapx}
+              mapy={tourInfo.mapy}
+              title={tourInfo.title}
+            />
+          </React.Fragment>
+        ))}
+      
+      </Col>
+  
   
       
-      <ul>
-      {/*  /!*{numbers.map(number => (*!/*/}
-      {/*  /!*  <li key={number.id}>{number.title}</li>*!/*/}
-      {/*  /!*))}*!/*/}
-      </ul>
-      
-      
-    </div>
+  
+  
+  
+      </Col>
+    
+    
     
     )
- 
 }
-
-
-
 
 export default withRouter(SearchPage)
