@@ -42,11 +42,7 @@ const SearchPage = (props) => {
   
   console.log(props.location.state,"받은값")
 
-  // const fuck = List;
-  // const sibal = {};
-  // const fucku = fuck.map((num) => sibal)
-  // console.log(fucku,"fuck")
-  // console.log(List,"뽑아")
+
   //
   // const storeList = [
   //   { name: 'CU', location: [37.565964, 126.986574] },
