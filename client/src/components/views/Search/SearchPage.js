@@ -62,7 +62,6 @@ const SearchPage = (props) => {
           </React.Fragment>
         ))}
         </Col>
-      </div>
       <Col lg={12}>
   
         <div className="Mapbox" style={{width:'100%'}}>
@@ -122,7 +121,7 @@ const SearchPage = (props) => {
           </div>
         
       </Col>
-   
+      </div>
     </Col>
 
     
