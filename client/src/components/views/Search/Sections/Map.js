@@ -5,35 +5,28 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Col } from 'antd'
 
 function Map (props) {
+  
+  const fetchlng = props.latitude;
+  const fetchlat = props.longitude;
 
-
-  // const storeList = [
-  //   { name: 'CU', location: [props.mapy, props.mapx] },
-  //
-  // ];
-  const hh = props.latitude;
-  const xx = props.longitude;
-  parseInt(hh);
-  parseInt(xx)
-  console.log(hh);
-  console.log(xx)
+  var lng = parseFloat(fetchlng);
+  var lat = parseFloat(fetchlat)
+  
+  console.log(typeof(lng),"lng");
+  console.log(typeof(lat),"lat")
 
   return (
 
 
   <>
-   
         <Marker
-        
-          latitude={xx}
-          longitude={hh}
+          latitude={lat}
+          longitude={lng}
         >
           <button
             className="btn-marker"
           />
         </Marker>
-
-
   </>
 
 

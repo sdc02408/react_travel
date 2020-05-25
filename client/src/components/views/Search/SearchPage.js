@@ -23,7 +23,7 @@ const SearchPage = (props) => {
   // const [List, setList ] = useState([])
 
   useEffect(() => {
-    const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&numOfRows=3&MobileOS=ETC&MobileApp=AppTesting&keyword=${props.location.state}&_type=json`
+    const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&numOfRows=10&MobileOS=ETC&MobileApp=AppTesting&keyword=${props.location.state}&_type=json`
     fetchList(endpoint)
     // dispatch(fetchlocationData())
   }, [])
@@ -43,16 +43,6 @@ const SearchPage = (props) => {
   
   console.log(props.location.state,"받은값")
 
-
-  // const storeList = [
-  //   { name: 'CU', location: [37.565964, 126.986574] },
-  //   { name: '할리스', location: [37.564431, 126.986591] },
-  //   { name: '세븐일레븐', location: [37.565188, 126.983238] },
-  //   { name: '파리바게트', location: [37.564869, 126.984450] },
-  //   { name: '스타벅스', location: [37.562003, 126.985829] }
-  // ];
-
-  
   return (
     <Col lg={24}>
     
@@ -72,7 +62,7 @@ const SearchPage = (props) => {
           </React.Fragment>
         ))}
         </Col>
-        
+      </div>
       <Col lg={12}>
   
         <div className="Mapbox" style={{width:'100%'}}>
@@ -132,7 +122,7 @@ const SearchPage = (props) => {
           </div>
         
       </Col>
-      </div>
+   
     </Col>
 
     
