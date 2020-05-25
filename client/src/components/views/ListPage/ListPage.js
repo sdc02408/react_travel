@@ -13,7 +13,7 @@ function ListPage() {
 
   // ${ServiceKey}
   useEffect(() => {
-    const first = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=${ServiceKey}&areaCode=35&MobileOS=ETC&MobileApp=AppTesting&_type=json`;
+    const first = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList?ServiceKey=${ServiceKey}&areaCode=35&numOfRows=3&MobileOS=ETC&MobileApp=AppTesting&_type=json`;
     fetchInfo(first);
     //
     // const second = ` http://api.visitkorea.or.kr/openapi/service/rest/KorService/locationBasedList?ServiceKey=${ServiceKey}&mapX=126.981611&mapY=37.568477&radius=1000&pageNo=1&numOfRows=10&listYN=Y&arrange=A&MobileOS=ETC&MobileApp=AppTesting&_type=json`

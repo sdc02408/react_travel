@@ -8,6 +8,7 @@ import { Row, Col, Card, Input, DatePicker, Button, Typography } from "antd";
 import ReactMapGL,{ Marker, Popup,NavigationControl, FlyToInterpolator} from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+
 const SearchPage = (props) => {
   const MAP_TOKEN = 'pk.eyJ1IjoiY2hhbnNlb2t5IiwiYSI6ImNrYWhxMW0zMzBpazQyem95bnRzNjVzMWoifQ.SFPI5tlCIjZdMBzJSIn0aA';
   const [ viewport, setViewport ] = useState({
@@ -20,9 +21,9 @@ const SearchPage = (props) => {
   
   const [tour,setTour] = useState([])
   // const [List, setList ] = useState([])
-  
+
   useEffect(() => {
-    const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&MobileOS=ETC&MobileApp=AppTesting&keyword=${props.location.state}&_type=json`
+    const endpoint = `http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword?ServiceKey=${ServiceKey}&numOfRows=3&MobileOS=ETC&MobileApp=AppTesting&keyword=${props.location.state}&_type=json`
     fetchList(endpoint)
     // dispatch(fetchlocationData())
   }, [])
@@ -43,7 +44,6 @@ const SearchPage = (props) => {
   console.log(props.location.state,"받은값")
 
 
-  //
   // const storeList = [
   //   { name: 'CU', location: [37.565964, 126.986574] },
   //   { name: '할리스', location: [37.564431, 126.986591] },
@@ -51,6 +51,7 @@ const SearchPage = (props) => {
   //   { name: '파리바게트', location: [37.564869, 126.984450] },
   //   { name: '스타벅스', location: [37.562003, 126.985829] }
   // ];
+
   
   return (
     <Col lg={24}>
@@ -74,11 +75,7 @@ const SearchPage = (props) => {
         
       <Col lg={12}>
   
-  
-
-  
-
-          <div className="Mapbox" style={{width:'100%'}}>
+        <div className="Mapbox" style={{width:'100%'}}>
             <ReactMapGL
               {...viewport}
               transitionDuration={800}
@@ -89,34 +86,48 @@ const SearchPage = (props) => {
                 setViewport(viewport);
               }}
             >
+              
+              {/*{storeList &&*/}
+              {/*storeList.map((tourI,index) => (*/}
+              {/*  <React.Fragment key={index}>*/}
+              {/*    <Map*/}
+              {/*      id={index}*/}
+              {/*      latitude={tourI.location[0]}*/}
+              {/*      longitude={tourI.location[1]}*/}
+              {/*    />*/}
+              {/*  </React.Fragment>*/}
+              {/*))}*/}
+  
   
               {tour &&
               tour.map((tourI,index) => (
                 <React.Fragment key={index}>
                   <Map
                     id={index}
-                    mapx={tourI.mapx}
-                    mapy={tourI.mapy}
+                    latitude={tourI.mapx}
+                    longitude={tourI.mapy}
                   />
                 </React.Fragment>
               ))}
               
-              
   
-        {/*{*/}
-        {/*  tour.map((store, i) => (*/}
-        {/*    <Marker*/}
-        {/*      key={i}*/}
-        {/*      latitude={store.mapy}*/}
-        {/*      longitude={store.mapx}*/}
-        {/*    >*/}
-        {/*      <button*/}
-        {/*        className="btn-marker"*/}
-        {/*      />*/}
-        {/*    </Marker>*/}
-        {/*  ))*/}
-        {/*}*/}
-
+              {/*{*/}
+              {/*  tour.map((tours, i) => (*/}
+              {/*    <Marker*/}
+              {/*      key={i}*/}
+              {/*      latitude={tours.mapx}*/}
+              {/*      longitude={tours.mapy}*/}
+              {/*    >*/}
+              {/*      <button*/}
+              {/*        className="btn-marker"*/}
+              {/*      />*/}
+              {/*    </Marker>*/}
+              {/*  ))*/}
+              {/*}*/}
+  
+  
+            
+        
             </ReactMapGL>
           </div>
         
